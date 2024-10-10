@@ -91,7 +91,7 @@ internal class Program
     }
     public void rightTriangle(int x)
     {
-        for (int i = 0; i < x; i++)
+        for (int i = 1; i <= x; i++)
         {
             for (int j = 1; j <= x - i; j++) Console.Write(" ");
             for (int g = 1; g <= i; g++) Console.Write("*");
@@ -318,7 +318,8 @@ internal class Program
                             int[] arr1 = new int[s.Length];
                             for (int i = 0; i < s.Length; i++) arr1[i] = Convert.ToInt32(s[i]);
                             int result1 = p.findFirst(arr1,x1);
-                            Console.WriteLine(result1);
+                            if (result1 == -1) Console.WriteLine("такого числа нет в списке");
+                            else Console.WriteLine($"Число находится на {result1} месте");
                             break;
                         case 2:
                             Console.Write("введите arr: ");
