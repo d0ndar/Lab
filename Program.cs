@@ -1,48 +1,49 @@
 ﻿using System;
 internal class Program
 {
-    public double fraction(double x)
+    
+    public double fraction(double x) //1.1
     {
         return Math.Abs(x) - (int)Math.Abs(x);
     }
-    public int charToNum(char x)
+    public int charToNum(char x)//1.2
     {
         return x - 48;
     }
-    public bool is2Digits(int x)
+    public bool is2Digits(int x)//1.3
     {
         return (x / 100 == 0) && (x/10 != 0);
     }
-    public bool isInRange(int a, int b, int num)
+    public bool isInRange(int a, int b, int num)//1.4
     {
         return (a > b && num >= b && num <= a) || (a < b && num >= a && num <= b);
     }
-    public bool isEqual(int a, int b, int c)
+    public bool isEqual(int a, int b, int c)//1.5
     {
         return a == b && b == c;
     }
-    public int abs(int x)
+    public int abs(int x)//2.1
     {
         if (x < 0) return -x;
         else return x;
     }
-    public bool is35(int x)
+    public bool is35(int x)//2.2
     {
         if ((x % 3 == 0 && x % 5 != 0) || (x % 3 != 0 && x % 5 == 0)) return true;
         else return false;
     }
-    public int max3(int x, int y, int z)
+    public int max3(int x, int y, int z)//2.3
     {
         if ((x>y) && (x>z)) return x;
         if ((y>x) && (y>z)) return y;
         return z;
     }
-    public int sum2(int x, int y)
+    public int sum2(int x, int y)//2.4
     {
         if ((x + y >= 10) && (x + y <= 19)) return 20;
         return x + y;
     }
-    public String day(int x)
+    public String day(int x)//2.5
     {
         switch (x)
         {
@@ -56,19 +57,19 @@ internal class Program
             default: return "Это не день недели!";
         }
     }
-    public String listNums(int x)
+    public String listNums(int x)//3.1
     {
         string result = "";
         for (int i = 0; i <= x; i++) result += i + " ";
         return result;
     }
-    public String chet(int x)
+    public String chet(int x)//3.2
     {
         string result = "";
         for (int i = 0; i <= x; i += 2) result += i + " ";
         return result;
     }
-    public int numLen(long x)
+    public int numLen(long x)//3.3
     {
         int ans = 0;
         while (Math.Abs(x)>0)
@@ -78,7 +79,7 @@ internal class Program
         }
         return ans;
     }
-    public void square(int x)
+    public void square(int x)//3.4
     {
         for (int i = 0; i < x; i++)
         {
@@ -89,7 +90,7 @@ internal class Program
             Console.WriteLine("");
         }
     }
-    public void rightTriangle(int x)
+    public void rightTriangle(int x)//3.5
     {
         for (int i = 1; i <= x; i++)
         {
@@ -98,7 +99,7 @@ internal class Program
             Console.WriteLine("");
         }
     }
-    public int findFirst(int[] arr, int x)
+    public int findFirst(int[] arr, int x)//4.1
     {
         for (int i = 0; i < arr.Length; i++)
         {
@@ -106,7 +107,7 @@ internal class Program
         }
         return -1;
     }
-    public int maxAbs(int[] arr)
+    public int maxAbs(int[] arr)//4.2
     {
         int x = arr[0];
         for (int i = 0; i < arr.Length; i++)
@@ -115,7 +116,7 @@ internal class Program
         }
         return x;
     }
-    public int[] add(int[] arr, int[] ins, int pos)
+    public int[] add(int[] arr, int[] ins, int pos)//4.3
     {
         int[] ans = new int[arr.Length + ins.Length];
         for (int i = 0; i < pos; i++) ans[i] = arr[i];
@@ -123,13 +124,13 @@ internal class Program
         for (int i = ins.Length + pos; i - ins.Length < arr.Length; i++) ans[i] = arr[i - ins.Length];
         return ans;
     }
-    public int[] reverseBack(int[] arr)
+    public int[] reverseBack(int[] arr)//4.4
     {
         int[] ans = new int[arr.Length];
         for (int i = 0; i < arr.Length; i++) ans[i] = arr[arr.Length - i - 1];
         return ans;
     }
-    public int[] findAll(int[] arr, int x)
+    public int[] findAll(int[] arr, int x)//4.5
     {
         int j = 0;
         for (int i = 0; i < arr.Length; i++) if (x == arr[i]) j++;
