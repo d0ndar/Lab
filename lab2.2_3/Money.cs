@@ -11,6 +11,7 @@ public class Money
         this.rubles = rubles;
         this.kopeks = kopeks;
     }
+    // уменшить баланс на mkopeks копеек
     public Money DecreaseByKopeks(byte mkopeks)
     {
         uint frubles = rubles;
@@ -53,6 +54,7 @@ public class Money
         
         return new Money(rubles, kopeks);
     }
+    // - 1 к копейкам
     public static Money operator --(Money a)
     {
         if (a.kopeks > 0) return new Money(a.rubles, Convert.ToByte(a.kopeks - 1));
@@ -66,6 +68,7 @@ public class Money
             return new Money(a.rubles - 1, Convert.ToByte(a.kopeks + 99));
         }    
     }
+    // + 1 к копейкам
     public static Money operator ++(Money a)
     {
         a.kopeks += 1;
@@ -77,30 +80,38 @@ public class Money
 
         return new Money(a.rubles, a.kopeks);
     }
+    //возвращаем целое число рублей
     public static explicit operator uint(Money a)
     {
         return (uint)a.rubles;
     }
+    //проверяем если баланс 0
     public static explicit operator bool(Money a)
     {
         return (a.rubles == 0 & a.kopeks == 0);
     }
+    //левостороннее и правостороннее
     public static Money operator -(Money a, byte m)
     {
-        return new Money(a.rubles, Convert.ToByte(a.kopeks >>> m));
+        return new Money(a.DecreaseByKopeks(m));
     }
+    public static Money operator -(byte m, Money a)
+    {
+        return new Money(a.DecreaseByKopeks(m));
+    }
+    //бинарыне
     public static Money operator -(Money a, Money b)
     {
         if (a.rubles < b.rubles & a.kopeks < b.kopeks)
         {
-            Console.WriteLine("Не можу я");
+            Console.WriteLine("Не можу вычесть");
             return new Money(a.rubles, a.kopeks);
         }
         Money f = a.DecreaseByKopeks(a.kopeks);
         if (a.rubles > b.rubles) return new Money(f.rubles - b.rubles, f.kopeks);
         else
         {
-            Console.WriteLine("да не можу я больше");
+            Console.WriteLine("Не могу вычесть");
             return new Money(a.rubles, a.kopeks);
         }
     }

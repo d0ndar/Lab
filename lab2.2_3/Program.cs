@@ -1,5 +1,4 @@
-﻿using GTFO;
-using System;
+﻿using System;
 namespace mo;
 class Program
 {
