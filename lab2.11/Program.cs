@@ -16,15 +16,16 @@ class Program
         Console.WriteLine();
 
 
-        Console.WriteLine("Введите координаты нижнего левого угла прямоугольника (x =0/1,y=0/1) и размеры (ширина, высота):");
+        Console.WriteLine("Введите состояние двери(1- открыта, 0 - закрыта) и название двери с локацией:");
         IDK idk = ValidateInput.GetInput();
 
         Console.WriteLine(idk.ToString());
-        Console.WriteLine("Площадь: " + idk.Area());
+        Console.WriteLine("Закрытые двери: " + idk.FindClosedDores());
         Console.WriteLine("");
 
-        var topLeft = idk.GetBottomLeftCorner();
-        Console.WriteLine($"Координаты нижнего левого угла: ({topLeft.x}, {topLeft.y})");
+        Console.WriteLine("Введите название двери для закрытия: ");
+        var ost = idk.CloseTheDoor(Console.ReadLine());
+        Console.WriteLine(idk);
         Console.ReadLine();
     }
 

@@ -2,23 +2,33 @@
 namespace GTFO;
 public class IDK : Field
 {
-    private int width, height;
-    //проверка что из России и какой гендер
-    public IDK(bool x, bool y, int width, int height) : base(x, y)
+    private string location1,location2;
+    public IDK(bool x, bool y,  string location1,  string location2) : base(x, y)
     {
-        this.width = width;
-        this.height = height;
+        this.location1 = location1;
+        this.location2 = location2;
     }
-    public int Area()
+    public string  FindClosedDores()
     {
-        return width * height;
+        if (!field1) return (location1);
+        if (!field2) return (location2);
+        else return ("Нет такой двери двери");
     }
-    public (int x, int y) GetBottomLeftCorner()
+
+    public bool CloseTheDoor(string location)
     {
-        return (Convert.ToInt32(field1), Convert.ToInt32(field2));
+        if (location == location1) return field1 = false;
+        if (location == location2) return field2 = false;
+        else
+        {
+            Console.WriteLine("нет такой двери!");
+            return false;
+        }
+        
     }
+
     public override string ToString()
     {
-        return base.ToString() + $", Ширина: {width}, Высота: {height}";
+        return base.ToString() + $", Название: {location1}, локация 2: {location2}";
     }
 }

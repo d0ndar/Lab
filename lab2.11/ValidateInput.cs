@@ -11,9 +11,11 @@ class ValidateInput
     {
         bool x = SimpleInputBool("Введите x: ");
         bool y = SimpleInputBool("Введите y: ");
-        int width = inputInteger("Введите ширину: ");
-        int height = inputInteger("Введите высоту: ");
-        return new IDK(x, y, width, height);
+        Console.WriteLine("Введите локацию первой двери: ");
+        string location1 = Console.ReadLine();
+        Console.WriteLine("Введите локацию второй двери: ");
+        string location2 = Console.ReadLine();
+        return new IDK(x, y, location1, location2);
     }
     static public int inputInteger(string s)                                                                                          
     {
