@@ -69,10 +69,6 @@ class Program
                     FileStream f = new FileStream("serialization.xml",FileMode.Create, FileAccess.ReadWrite, FileShare.Read);
                     xml.Serialize(f, toy);
                     Toy max = new Toy();
-                    foreach (Toy i in toy)
-                    {
-                        Console.WriteLine(i);
-                    }
                     int FromAge = ValidateInput.InputInteger("Введите возраст с которого можно играть с игрушкой");
                     int ToAge = ValidateInput.InputInteger("Введите возраст до которого можно играть с игрушкой");
                     foreach (Toy i in toy)
