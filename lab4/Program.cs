@@ -71,17 +71,17 @@ class Program
 
                     Console.WriteLine("Введите содержимое файла:");
                     string text = Console.ReadLine();
-                    
-                    using (var writer = new StreamWriter(FilePath)) writer.WriteLine(text);
+                    try { using (var writer = new StreamWriter(FilePath)) writer.WriteLine(text); }
+                    catch { Console.WriteLine("нет файла для записи"); }
                     Console.WriteLine("Используемые числа:" + string.Join(",", Tasks.Findnumbers(FilePath).Select(x => x.ToString())));
                     break;
                 case 5:
-                    //Задание 5
-                    break;
-                case 6:
-                    exit = false;
-                    break;
-            }
-        }
+                        //Задание 5
+                        break;
+                    case 6:
+                        exit = false;
+                        break;
+                    }
+                    }
     }
 }

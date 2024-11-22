@@ -95,9 +95,18 @@ internal class Tasks
     //Задание 4
     public static HashSet<char> Findnumbers(string FilePath)
     {
-        string text = File.ReadAllText(FilePath);
-
         HashSet<char> digits = new HashSet<char>();
+
+        string text;
+        try { text = File.ReadAllText(FilePath); }
+        catch 
+        { 
+            Console.WriteLine("нет файла для чтения");
+            return digits;
+        }
+        
+
+        
         
         //здесь мы сравниваем побуквенно, используя от HashSet'а только уникальность значений.
         //Да, можно было бы использовать метод contains или найти пересечения, но мне уже лень думать
